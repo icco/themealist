@@ -6,6 +6,14 @@ body {
    -webkit-font-smoothing: antialiased;
 }
 
+.clearfix:after  {
+   content: ".";
+   display: block;
+   height: 0;
+   clear: both;
+   visibility: hidden;
+}
+
 #container {
    margin: 20px auto;
    width: 600px;
@@ -19,7 +27,6 @@ body {
 
    #list {
       border: 5px solid #ccc;
-      border-radius: 1em;
       padding: 0;
    }
 }
@@ -60,4 +67,49 @@ body {
       text-align: center;
       vertical-align: middle;
    }
+}
+
+ul {
+   background-color: #FFF;
+   border-radius: 0 0 0.6em 0.6em;
+}
+
+li {
+   color: #333;
+
+   input[type=checkbox] {
+      margin: 0 13px 0 10px;
+   }
+
+   .edit-handle {
+      float: right;
+      display: inline;
+      padding: 3px;
+      cursor: pointer;
+   }
+}
+
+li.first {
+   background-color: #FFF;
+   margin: 0;
+   border-top: 1px solid silver;
+   padding: 10px;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+
+
+#items li {
+   cursor: move;
+
+   input[type=checkbox] {
+      cursor: pointer;
+   }
+}
+
+li.completed  {
+   color: silver;
+   opacity: 0.7;
 }
