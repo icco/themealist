@@ -1,23 +1,6 @@
-#!/usr/bin/env ruby
-# An app for ...
+# An app for Remembering your meals.
 # @author Nat Welch - https://github.com/icco
-
-begin
-   require "rubygems"
-rescue LoadError
-   puts "Please install Ruby Gems to continue."
-   exit
-end
-
-# Check all of the gems we need are there.
-[ "sinatra", "less", "sequel" ].each {|gem|
-   begin
-      require gem
-   rescue LoadError
-      puts "The gem #{gem} is not installed.\n"
-      exit
-   end
-}
+# NOTE: You can not execute this file. Use `shotgun` to test.
 
 configure do
    set :sessions, true
