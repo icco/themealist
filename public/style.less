@@ -69,15 +69,13 @@ body {
    }
 }
 
-ul {
-   background-color: #FFF;
-   border-radius: 0 0 0.6em 0.6em;
-}
-
 li {
    color: #333;
+   cursor: move;
+   padding: 3px;
 
    input[type=checkbox] {
+      cursor: pointer;
       margin: 0 13px 0 10px;
    }
 
@@ -89,24 +87,17 @@ li {
    }
 }
 
-li.first {
-   background-color: #FFF;
+ul.top {
    margin: 0;
-   border-top: 1px solid silver;
-   padding: 10px;
-   margin: 0;
-   padding: 0;
-   list-style: none;
+   padding-left: 0;
 }
 
-
-
-#items li {
-   cursor: move;
-
-   input[type=checkbox] {
-      cursor: pointer;
-   }
+li.first {
+   background-color: #FFF;
+   border-top: 1px solid silver;
+   list-style: none;
+   margin-bottom: 5px;
+   padding: 10px;
 }
 
 li.completed  {
