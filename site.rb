@@ -20,5 +20,17 @@ post '/' do
    redirect '/'
 end
 
+get '/meal/:id' do
+   meal = Meal.find(params["id"])
+
+   # TODO: doesn't work because Meal.find returns a meal, no matter what.
+   if !meal.nil?
+      erb :meal, :locals => { :meal => meal }
+   else
+      p params
+      error "404"
+   end
+end
+
 class Meal < Sequel::Model(:meals)
 end
