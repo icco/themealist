@@ -12,8 +12,12 @@ task :db do
    require "sequel"
 
    DB = Sequel.connect(ENV['DATABASE_URL'] || "sqlite://data.db")
-   DB.create_table! :entries do
-      primary_key :entry_id
+   DB.create_table! :meals do
+      primary_key :id
+
+      String :name
+      DateTime :date
+
       DateTime :create_date
       DateTime :modify_date
    end 

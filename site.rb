@@ -8,12 +8,17 @@ configure do
 end
 
 get '/' do
-   erb :index, :locals => {}
+   erb :index, :locals => { :meals => Meal.all }
 end
 
 post '/' do
+   m = Meal.new
+   m.name = params["meal"]
+   m.date = params["date"] if !params["date"].nil?
+   m.save
+
    redirect '/'
 end
 
-class Entry < Sequel::Model(:entries)
+class Meal < Sequel::Model(:meals)
 end

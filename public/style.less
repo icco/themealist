@@ -14,9 +14,21 @@ body {
    visibility: hidden;
 }
 
+#mealname {
+   width: 325px;
+}
+
+#mealdate {
+   width: 110px;
+}
+
 #container {
    margin: 20px auto;
    width: 600px;
+
+   .items {
+      margin: 10px 0;
+   }
 
    h1 {
       margin-top: 40px;
@@ -28,6 +40,29 @@ body {
    #list {
       border: 5px solid #ccc;
       padding: 0;
+
+      input[type=text] {
+         border: 1px solid #d0d0d0;
+         height: 42px;
+         margin: 10px;
+         display: inline-block;
+         font-size: 1.3em;
+         padding-left: 10px;
+         color: #CCC;
+         float: left;
+         font-weight: 600;
+      }
+
+      input[type=submit] {
+         width: 50px;
+         height: 42px;
+         color: black;
+         border: none;
+         cursor: pointer;
+         margin: 11px 10px;
+         display: inline-block;
+         float: left;
+      }
    }
 }
 
@@ -38,7 +73,7 @@ body {
 
    #headtext {
       font-size: 1.4em;
-      color: #DDDDDD;
+      color: #FFFFFF;
 
       img {
          margin: 10px;
@@ -96,8 +131,11 @@ li.first {
    background-color: #FFF;
    border-top: 1px solid silver;
    list-style: none;
-   margin-bottom: 5px;
    padding: 10px;
+}
+
+#last {
+   margin: 0;
 }
 
 li.completed  {
