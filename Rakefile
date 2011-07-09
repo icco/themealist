@@ -2,6 +2,11 @@
 require 'rake/clean'
 CLEAN.include("data.db")
 
+desc "Launch locally"
+task :default do
+   exec "shotgun -s thin"
+end
+
 desc "Create local db."
 task :db do
    require "sequel"
