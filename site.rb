@@ -17,6 +17,13 @@ post '/' do
    m.date = params["date"] if !params["date"].nil?
    m.save
 
+   (0..5).each do |idx|
+      i = Item.new
+      i.meal = m
+      i.name = "blah #{idx}"
+      i.save
+   end
+
    redirect '/'
 end
 
@@ -33,4 +40,9 @@ get '/meal/:id' do
 end
 
 class Meal < Sequel::Model(:meals)
+   one_to_many :items
+end
+
+class Item < Sequel::Model(:items)
+   many_to_one :meal
 end

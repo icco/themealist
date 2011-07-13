@@ -20,7 +20,19 @@ task :db do
 
       DateTime :create_date
       DateTime :modify_date
-   end 
+   end
+
+   DB.create_table! :items do
+      primary_key :id
+
+      String :name
+      Integer :order, :default => 0
+      Integer :depth, :default => 0
+      Integer :meal_id
+
+      DateTime :create_date
+      DateTime :modify_date
+   end
 
    puts "Database built."
 end

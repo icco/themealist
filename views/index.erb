@@ -50,6 +50,13 @@
                      <%= meal.name %>
                      <span class="time"><a href="/meal/<%= meal.id %>"><%= meal.date.nil? ? "&rarr;" : meal.date %></a></span>
                   </li>
+                  <div class="items">
+                     <ul>
+                     <% meal.items.each do |item| %>
+                        <li><%= item.name %>, order: <%= item.order %>, depth: <%= item.depth %></li>
+                     <% end %>
+                     </ul>
+                  </div>
                <% end %>
 
                <li class="first" id="last">
