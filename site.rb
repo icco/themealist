@@ -5,10 +5,45 @@
 configure do
    set :sessions, true
    DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://data.db')
+
 end
 
 get '/' do
    erb :index, :locals => { :meals => Meal.all }
+end
+
+get '/build' do
+   m = Meal.new
+   m.name = "Dinner Tuesday"
+   m.save
+
+   i = Item.new
+   i.name = "Pasta"
+   i.meal = m
+   i.save
+   i = Item.new
+   i.name = "Pasta sauce"
+   i.depth = 1
+   i.meal = m
+   i.save
+   i = Item.new
+   i.name = "angel hair pasta"
+   i.depth = 1
+   i.meal = m
+   i.save
+   i = Item.new
+   i.name = "cheese"
+   i.depth = 1
+   i.meal = m
+   i.save
+
+   i = Item.new
+   i.name = "red wine"
+   i.depth = 0
+   i.meal = m
+   i.save
+
+   redirect '/'
 end
 
 post '/' do

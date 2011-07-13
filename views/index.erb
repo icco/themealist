@@ -52,8 +52,19 @@
                      <span class="time"><a href="/meal/<%= meal.id %>"><%= meal.date.nil? ? "&rarr;" : meal.date %></a></span>
                   </li>
                   <div class="items">
+                     <!-- This logic is wrong... -->
                      <ul>
                      <% meal.items.each do |item| %>
+                        <% @depth = 0; 
+                           while item.depth != @depth do
+                              if item.depth > @depth %>
+                              <ul> <%= @depth %>
+                              <% @depth += 1
+                              elsif item.depth < @depth %>
+                                 </ul> <%= @depth %>
+                              <% @depth -= 1
+                              end %>
+                        <% end %>
                         <li><%= item.name %>, order: <%= item.order %>, depth: <%= item.depth %></li>
                      <% end %>
                      </ul>
