@@ -58,7 +58,7 @@
                         <% @depth = 0; 
                            while item.depth != @depth do
                               if item.depth > @depth %>
-                              <ul> <%= @depth %>
+                              <ul>
                               <% @depth += 1
                               elsif item.depth < @depth %>
                                  </ul> <%= @depth %>
