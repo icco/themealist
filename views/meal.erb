@@ -8,15 +8,36 @@
    </head>
    <body>
       <div id="header">
-         <span id="headtext">
-            <img src="/header_logo.png" />
-            <p>The Mealist</p>
-         </span>
+         <span id="headtext"><a href="/"><img src="/header_logo.png" /><p>The Mealist</p></a></span>
          <span id="headright">Sign Out</span>
       </div>
       <div id="container">
+         <!--
          <h2>Meal: <%= meal.name %></h2>
          <h4>When: <%= meal.date %></h4>
-      </div>
-   </body>
-</html>
+         -->
+         <div id="list">
+            <ul class="top">
+               <li class="first">
+               <%= meal.name %>
+               <span class="time"><a href="/meal/<%= meal.id %>"><%= meal.date.nil? ? "&rarr;" : meal.date %></a></span>
+               </li>
+               <div class="items">
+                  <ul>
+                     <% @depth = 0; %>
+                     <% meal.items.each do |item| %>
+                        <% while item.depth != @depth do %>
+                           <% if item.depth > @depth %>
+                              <ul> <% @depth += 1 %>
+                           <% elsif item.depth < @depth %>
+                              </ul> <% @depth -= 1 %>
+                           <% end %>
+                        <% end %>
+                        <li><%= item.name %>, order: <%= item.order %>, depth: <%= item.depth %></li>
+                     <% end %>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </body>
+   </html>
