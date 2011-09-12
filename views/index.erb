@@ -27,14 +27,12 @@
                         <% meal.items.each do |item| %>
                            <% while item.depth != @depth do %>
                               <% if item.depth > @depth %>
-                                 <ul>
-                                    <% @depth += 1 %>
+                                 <ul> <% @depth += 1 %>
                                  <% elsif item.depth < @depth %>
-                                 </ul>
-                                 <% @depth -= 1 %>
+                                 </ul> <% @depth -= 1 %>
                               <% end %>
                            <% end %>
-                           <li><%= item.name %>, order: <%= item.order %>, depth: <%= item.depth %></li>
+                           <li><%= item.name %></li>
                         <% end %>
                      </ul>
                   </div>
