@@ -51,24 +51,15 @@ post '/' do
    m.date = Chronic.parse(params["date"]) if !params["date"].nil?
    m.save
 
-   (0..5).each do |idx|
-      i = Item.new
-      i.meal = m
-      i.name = "blah #{idx}"
-      i.save
-   end
-
    redirect '/'
 end
 
 get '/meal/:id' do
-   meal = Meal.find(params["id"])
+   meal = Meal[params["id"]]
 
-   # TODO: doesn't work because Meal.find returns a meal, no matter what.
    if !meal.nil?
       erb :meal, :locals => { :meal => meal }
    else
-      p params
       error "404"
    end
 end
