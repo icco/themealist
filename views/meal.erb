@@ -20,7 +20,7 @@
             <ul class="top">
                <li class="first">
                <%= meal.name %>
-               <span class="time"><a href="/meal/<%= meal.id %>"><%= meal.date.nil? ? "&rarr;" : meal.date %></a></span>
+               <span class="time"><a href="/meal/<%= meal.id %>"><%= meal.date.nil? ? "&rarr;" : meal.date.time_since %></a></span>
                </li>
                <div class="items">
                   <ul>
