@@ -48,7 +48,7 @@ end
 post '/' do
    m = Meal.new
    m.name = params["meal"]
-   m.date = params["date"] if !params["date"].nil?
+   m.date = Chronic.parse(params["date"]) if !params["date"].nil?
    m.save
 
    (0..5).each do |idx|
