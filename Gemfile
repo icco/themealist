@@ -1,8 +1,8 @@
 source :rubygems
 
-gem "sinatra"
+gem "sinatra", ">= 2.0.2"
 gem "less"
 gem "sequel"
 gem "sqlite3"
-gem "shotgun"
+gem "shotgun", ">= 0.9"
 gem "chronic"
